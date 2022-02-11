@@ -4,6 +4,12 @@ class BookersController < ApplicationController
 
   end
 
+  def create
+    list = Bookers.new(list_params)
+    list.save
+    redirect_to '/top'
+  end
+
   def index
 
   end
@@ -16,9 +22,8 @@ class BookersController < ApplicationController
 
   end
 
+
   private
-
-
   def book_params
     params.require(:list).permit(:title, :body)
   end
